@@ -1,0 +1,7 @@
+<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" class="lucide lucide-text-search" width="128" height="128" viewBox="0 0 24 24" fill="none" stroke="#cbd5e1" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+  <ns0:path d="M21 5H3" />
+  <ns0:path d="M10 12H3" />
+  <ns0:path d="M10 19H3" />
+  <ns0:circle cx="17" cy="15" r="3" />
+  <ns0:path d="m21 19-1.9-1.9" />
+</ns0:svg>

@@ -1,0 +1,10 @@
+{
+  "name": "tovu_line",
+  "title": "Tovu Line",
+  "author": "Tovu Calibre Themes · Lucide contributors",
+  "version": 1,
+  "description": "Rounded line icons in teal and slate. Automatically adapts to light and dark modes.",
+  "license": "ISC / MIT",
+  "color_palette": "any",
+  "number": 245
+}

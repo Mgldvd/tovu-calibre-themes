@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 24 24"><defs><linearGradient id="accent" x1="0%" y1="0%" x2="85%" y2="100%"><stop offset="0" stop-color="#fff5ce" /><stop offset="1" stop-color="#f3d28e" /></linearGradient></defs><rect width="20" height="14" x="2" y="3" rx="2" fill="url(#accent)" fill-opacity="0.85" stroke="none" /><g stroke="#a16a1d" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" fill="none"><rect width="20" height="14" x="2" y="3" rx="2" />
+  <line x1="8" x2="16" y1="21" y2="21" />
+  <line x1="12" x2="12" y1="17" y2="21" />
+</g></svg>

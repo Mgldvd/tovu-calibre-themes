@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Install Tovu Calibre Themes
+Comment=Install or restore Tovu icon themes for Calibre
+Exec="/media/uu/Enoc/Proyects/Calibre/tovu-calibre-themes/install.sh"
+Icon=/media/uu/Enoc/Proyects/Calibre/tovu-calibre-themes/themes/stickers/theme/library.png
+Terminal=false
+Categories=Utility;
+StartupNotify=true
