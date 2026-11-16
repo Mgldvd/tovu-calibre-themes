@@ -1,5 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 24 24"><defs><linearGradient id="accent" x1="0%" y1="0%" x2="85%" y2="100%"><stop offset="0" stop-color="#ffeaf0" /><stop offset="1" stop-color="#f2afc7" /></linearGradient></defs><rect width="20" height="8" x="2" y="2" rx="2" ry="2" fill="url(#accent)" fill-opacity="0.85" stroke="none" /><g stroke="#b24e6b" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" fill="none"><rect width="20" height="8" x="2" y="2" rx="2" ry="2" />
-  <rect width="20" height="8" x="2" y="14" rx="2" ry="2" />
-  <line x1="6" x2="6.01" y1="6" y2="6" />
-  <line x1="6" x2="6.01" y1="18" y2="18" />
-</g></svg>

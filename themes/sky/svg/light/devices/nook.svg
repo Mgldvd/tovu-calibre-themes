@@ -1,3 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 24 24"><defs><linearGradient id="accent" x1="0%" y1="0%" x2="85%" y2="100%"><stop offset="0" stop-color="#f0efff" /><stop offset="1" stop-color="#c4c7f2" /></linearGradient></defs><rect width="16" height="20" x="4" y="2" rx="2" ry="2" fill="url(#accent)" fill-opacity="0.85" stroke="none" /><g stroke="#6267ac" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" fill="none"><rect width="16" height="20" x="4" y="2" rx="2" ry="2" />
-  <line x1="12" x2="12.01" y1="18" y2="18" />
-</g></svg>

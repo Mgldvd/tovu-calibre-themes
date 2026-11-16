@@ -20,11 +20,9 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Tovu Line and Sky's SVG and PNG icon artwork is based on Lucide. Its ISC license and the MIT
-license for icons derived from Feather are in vendor/lucide/LICENSE. Those
-notices apply to the original and adapted icon artwork distributed here.
+Tovu Line and Sky's icon artwork is based on Lucide. Its ISC license and the MIT
+license for icons derived from Feather are in LICENSE-LUCIDE. Those notices
+apply to the original and adapted icon artwork distributed here.
 
 Tovu Clay, Pencil, Pencil Color and Stickers are separate generated raster
-artworks. Their source atlases and generation prompts are included in
-themes/clay/source, themes/pencil/source, themes/pencil-color/source and
-themes/stickers/source. See the ARTWORK.md file within each theme folder.
+artworks.

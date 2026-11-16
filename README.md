@@ -15,7 +15,7 @@ Line · Clay · Sky · Pencil · Pencil Color · Stickers
 ![Offline](https://img.shields.io/badge/install-offline%20%C2%B7%20no%20root-f59e0b?style=flat-square)
 ![License: MIT](https://img.shields.io/badge/license-MIT-64748b?style=flat-square)
 
-[In Calibre](#-in-calibre) · [Installer](#-the-installer) · [Themes](#-the-themes) · [Install](#-quick-start) · [Restore](#-restore-the-original-icons) · [Build](#-verify-and-rebuild)
+[In Calibre](#-in-calibre) · [Installer](#-the-installer) · [Themes](#-the-themes) · [Install](#-quick-start) · [Restore](#-restore-the-original-icons) · [Contents](#-whats-in-the-box)
 
 </div>
 
@@ -116,7 +116,7 @@ A native Qt assistant that runs on the Calibre already on your computer. Pick a 
       <img src="themes/sky/previews/cover.jpg" alt="Tovu Sky preview">
       <h3>Tovu Sky</h3>
       Colorful outlines with gentle gradient fills in mint, teal, coral, rose, violet, amber and indigo.<br>
-      <sub><code>--theme sky</code> · editable SVGs</sub>
+      <sub><code>--theme sky</code> · light and dark variants</sub>
     </td>
     <td width="50%" valign="top">
       <img src="themes/pencil/previews/cover.jpg" alt="Tovu Pencil preview">
@@ -141,20 +141,18 @@ A native Qt assistant that runs on the Calibre already on your computer. Pick a 
   </tr>
 </table>
 
-Every theme covers **245 native icon names** in Calibre 9.18: toolbar, menus, editor tools, devices and file formats. That is **735 transparent PNGs** per theme (base, light and dark variants). Related actions share pictograms, and file formats get readable badges.
+Every theme covers **245 native icon names** in Calibre 9.18: toolbar, menus, editor tools, devices and file formats. That is **735 transparent PNGs** per theme (base, light and dark variants). Every toolbar action has its own icon, and file formats get readable badges.
 
 ### 🖼️ Full icon sheets and light/dark presentations
 
-| Theme | Light | Dark | All icons | Interactive |
-| --- | --- | --- | --- | --- |
-| Line | [light.png](previews/light.png) | [dark.png](previews/dark.png) | [all-icons.png](previews/all-icons.png) | [preview.html](previews/preview.html) |
-| Clay | [light.png](themes/clay/previews/light.png) | [dark.png](themes/clay/previews/dark.png) | [all-icons.png](themes/clay/previews/all-icons.png) | [preview.html](themes/clay/previews/preview.html) |
-| Sky | [light.png](themes/sky/previews/light.png) | [dark.png](themes/sky/previews/dark.png) | [all-icons.png](themes/sky/previews/all-icons.png) | [preview.html](themes/sky/previews/preview.html) |
-| Pencil | [light.png](themes/pencil/previews/light.png) | [dark.png](themes/pencil/previews/dark.png) | [all-icons.png](themes/pencil/previews/all-icons.png) | [preview.html](themes/pencil/previews/preview.html) |
-| Pencil Color | [light.png](themes/pencil-color/previews/light.png) | [dark.png](themes/pencil-color/previews/dark.png) | [all-icons.png](themes/pencil-color/previews/all-icons.png) | [preview.html](themes/pencil-color/previews/preview.html) |
-| Stickers | [light.png](themes/stickers/previews/light.png) | [dark.png](themes/stickers/previews/dark.png) | [all-icons.png](themes/stickers/previews/all-icons.png) | [preview.html](themes/stickers/previews/preview.html) |
-
-`preview.html` is a self-contained gallery: open it in any browser to switch between themes and palettes.
+| Theme | Light | Dark | All icons |
+| --- | --- | --- | --- |
+| Line | [light.png](previews/light.png) | [dark.png](previews/dark.png) | [all-icons.png](previews/all-icons.png) |
+| Clay | [light.png](themes/clay/previews/light.png) | [dark.png](themes/clay/previews/dark.png) | [all-icons.png](themes/clay/previews/all-icons.png) |
+| Sky | [light.png](themes/sky/previews/light.png) | [dark.png](themes/sky/previews/dark.png) | [all-icons.png](themes/sky/previews/all-icons.png) |
+| Pencil | [light.png](themes/pencil/previews/light.png) | [dark.png](themes/pencil/previews/dark.png) | [all-icons.png](themes/pencil/previews/all-icons.png) |
+| Pencil Color | [light.png](themes/pencil-color/previews/light.png) | [dark.png](themes/pencil-color/previews/dark.png) | [all-icons.png](themes/pencil-color/previews/all-icons.png) |
+| Stickers | [light.png](themes/stickers/previews/light.png) | [dark.png](themes/stickers/previews/dark.png) | [all-icons.png](themes/stickers/previews/all-icons.png) |
 
 <br>
 
@@ -206,59 +204,28 @@ Calibre's window layout, library, covers, textures and preferences are never tou
 
 <br>
 
-## 🧪 Verify and rebuild
+## 📁 What's in the box
 
-The themes and the installer need **Calibre 6 or later** on Windows, macOS or Linux. The test suite and builders run on **Linux** and are verified against **Calibre 9.18.0**. Tests run in isolated profiles, so your open Calibre session is untouched.
-
-```sh
-python3 tovu-calibre-themes/tools/verify.py
-```
-
-Covers native Qt icon lookup in both palettes, repeat installs, theme switching, backup retention, nested overrides, damaged backups, later edits, restoration, upgrades from Calibra and the graphical installer.
-
-### Rebuild everything offline
-
-```sh
-QT_QPA_PLATFORM=offscreen calibre-debug -e tovu-calibre-themes/tools/build_theme.py
-QT_QPA_PLATFORM=offscreen calibre-debug -e tovu-calibre-themes/tools/build_clay.py
-QT_QPA_PLATFORM=offscreen calibre-debug -e tovu-calibre-themes/tools/build_sky.py
-QT_QPA_PLATFORM=offscreen calibre-debug -e tovu-calibre-themes/tools/build_pencil.py
-QT_QPA_PLATFORM=offscreen calibre-debug -e tovu-calibre-themes/tools/build_pencil_color.py
-QT_QPA_PLATFORM=offscreen calibre-debug -e tovu-calibre-themes/tools/build_stickers.py
-python3 tovu-calibre-themes/tools/build_gallery.py
-
-# Screenshots used in this README (throwaway profiles and a sample library)
-QT_QPA_PLATFORM=offscreen QT_SCALE_FACTOR=2 calibre-debug -e tovu-calibre-themes/tools/snapshot_gui.py
-python3 tovu-calibre-themes/tools/snapshot_calibre.py
-```
-
-The builders use Calibre's bundled Qt and Pillow. Installing uses the prebuilt packages and never needs a rebuild or an image-generation API key.
-
-### 📁 What's in the box
+The themes and the installer need **Calibre 6 or later** on Windows, macOS or Linux, tested with **Calibre 9.18.0**.
 
 | Path | Contents |
 | --- | --- |
 | `install-windows.bat`, `install-mac.command`, `install-linux.sh` | Installer launchers for each system. |
 | `uninstall-windows.bat`, `uninstall-mac.command`, `uninstall-linux.sh` | Restore the icon theme you had before. |
 | `installer.py` | Theme selection, native compilation and verified backups. |
-| `tovu-line-theme.zip`, `theme/`, `svg/` | Tovu Line: native theme package, PNG resources and editable vectors. |
-| `themes/<name>/tovu-<name>-theme.zip` | Each theme in Calibre's native icon-theme format. |
-| `themes/<name>/theme/` | Installable PNG resources. |
-| `themes/<name>/source/` | Original atlases, exact prompts, extraction maps and references. |
-| `themes/sky/svg/` | Editable Sky vectors. |
-| `previews/`, `themes/*/previews/` | Light/dark presentations, full icon sheets, HTML galleries and installer screenshots. |
-| `manifest.json`, `themes/*/manifest.json` | SHA-256 resource inventories. |
-| `vendor/lucide/` | Original Lucide sources, pinned provenance and license. |
-| `tools/` | Builders, verification and screenshot scripts. |
+| `tovu-line-theme.zip`, `themes/<name>/tovu-<name>-theme.zip` | Each theme in Calibre's native icon-theme format. |
+| `manifest.json`, `themes/*/manifest.json` | SHA-256 inventories the installer checks before installing. |
+| `theme/`, `themes/*/theme/` | The few icons the installer shows on its theme cards. |
+| `previews/`, `themes/*/previews/` | Light/dark presentations, full icon sheets and screenshots. |
 
-The ZIPs are icon themes, not Calibre plugins. You can also load any theme's PNG folder from **Preferences → Miscellaneous → Create icon theme**.
+The ZIPs are icon themes, not Calibre plugins.
 
 <br>
 
 ## 🖌️ Artwork and provenance
 
-- **Line** and **Sky** adapt [Lucide](https://lucide.dev/) 1.73.0 (ISC and MIT notices in `vendor/lucide/LICENSE`). Sky uses editable SVGs with native gradients.
-- **Clay**, **Pencil**, **Pencil Color** and **Stickers** are separate raster artworks made with an image-generation tool. Their exact prompts and original source sheets are in each theme's `source/` folder; the prompts are kept verbatim, so they still use the project's former name, Calibra. Pencil's density-to-alpha export keeps the graphite grain on both light and dark backgrounds.
+- **Line** and **Sky** adapt [Lucide](https://lucide.dev/) 1.73.0 (ISC and MIT notices in [`LICENSE-LUCIDE`](LICENSE-LUCIDE)). Sky adds native gradients to the outlines.
+- **Clay**, **Pencil**, **Pencil Color** and **Stickers** are separate raster artworks made with an image-generation tool. Pencil keeps its graphite grain on both light and dark backgrounds.
 - Scripts are released under the [MIT license](LICENSE).
 
 <div align="center">
