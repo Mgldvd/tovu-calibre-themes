@@ -4,7 +4,7 @@
 
 # Tovu Calibre Themes
 
-**Six hand-crafted icon themes for [Calibre](https://calibre-ebook.com/), with a one-click installer.**
+**Six icon themes for [Calibre](https://calibre-ebook.com/), made with AI and carefully guided by hand, with a one-click installer.**
 
 Line · Clay · Sky · Pencil · Pencil Color · Stickers
 
@@ -15,9 +15,12 @@ Line · Clay · Sky · Pencil · Pencil Color · Stickers
 ![Offline](https://img.shields.io/badge/install-offline%20%C2%B7%20no%20root-f59e0b?style=flat-square)
 ![License: MIT](https://img.shields.io/badge/license-MIT-64748b?style=flat-square)
 
-[In Calibre](#-in-calibre) · [Installer](#-the-installer) · [Themes](#-the-themes) · [Install](#-quick-start) · [Restore](#-restore-the-original-icons) · [Contents](#-whats-in-the-box)
+[In Calibre](#-in-calibre) · [Installer](#-the-installer) · [Themes](#-the-themes) · [Install](#-quick-start) · [Restore](#-restore-the-original-icons) · [Contents](#-whats-in-the-box) · [Made with AI](#-made-with-ai)
 
 </div>
+
+> [!NOTE]
+> **This project was made with AI.** The artwork, code and documentation were produced with **Claude** (Anthropic) and **ChatGPT** (OpenAI), carefully directed and reviewed by the author. See [Made with AI](#-made-with-ai) for who did what.
 
 <br>
 
@@ -121,7 +124,7 @@ A native Qt assistant that runs on the Calibre already on your computer. Pick a 
     <td width="50%" valign="top">
       <img src="themes/pencil/previews/cover.jpg" alt="Tovu Pencil preview">
       <h3>Tovu Pencil</h3>
-      Hand-drawn graphite with repeated contours, pressure grain and cross-hatched shading.<br>
+      A hand-drawn graphite look with repeated contours, pressure grain and cross-hatched shading.<br>
       <sub><code>--theme pencil</code> · warm and pale graphite variants</sub>
     </td>
   </tr>
@@ -257,10 +260,24 @@ A build also writes every loose PNG, the editable SVGs and HTML galleries; `.git
 
 <br>
 
+## 🤖 Made with AI
+
+Everything in this project was made with AI, carefully guided by its author, [Mgldvd](https://github.com/Mgldvd). Nothing was drawn or coded by hand, and nothing was released without human review.
+
+| Who | What |
+| --- | --- |
+| **ChatGPT** (OpenAI) | Generated the raster artwork of **Clay**, **Pencil**, **Pencil Color** and **Stickers** with its built-in image generation. The exact prompts are kept in `src/themes/<name>/source/prompts.json`. |
+| **Claude** (Anthropic) and **ChatGPT** | Wrote the code: the installer and its launchers, the build, test and screenshot scripts, and this documentation. |
+| **The author** | Set the direction and style of every theme, reviewed the icons in a real Calibre, asked for fixes where something was wrong (for example, two toolbar actions sharing one icon) and approved every change. |
+
+**Line** and **Sky** are not AI-generated images: AI-written scripts adapt the open-source [Lucide](https://lucide.dev/) icons, which were drawn by Lucide's contributors.
+
+<br>
+
 ## 🖌️ Artwork and provenance
 
 - **Line** and **Sky** adapt [Lucide](https://lucide.dev/) 1.73.0 (ISC and MIT notices in [`LICENSE-LUCIDE`](LICENSE-LUCIDE)). Sky adds native gradients to the outlines.
-- **Clay**, **Pencil**, **Pencil Color** and **Stickers** are separate raster artworks made with an image-generation tool. Their exact prompts and original source sheets are in `src/themes/<name>/source/`; the prompts are kept verbatim, so they still use the project's former name, Calibra. Pencil keeps its graphite grain on both light and dark backgrounds.
+- **Clay**, **Pencil**, **Pencil Color** and **Stickers** are separate raster artworks generated with ChatGPT. Their exact prompts and original source sheets are in `src/themes/<name>/source/`; the prompts are kept verbatim, so they still use the project's former name, Calibra. Pencil keeps its graphite grain on both light and dark backgrounds.
 - Scripts are released under the [MIT license](LICENSE).
 
 <div align="center">
