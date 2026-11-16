@@ -217,15 +217,50 @@ The themes and the installer need **Calibre 6 or later** on Windows, macOS or Li
 | `manifest.json`, `themes/*/manifest.json` | SHA-256 inventories the installer checks before installing. |
 | `theme/`, `themes/*/theme/` | The few icons the installer shows on its theme cards. |
 | `previews/`, `themes/*/previews/` | Light/dark presentations, full icon sheets and screenshots. |
+| `src/` | Everything needed to rebuild the themes. Installing never uses it. |
 
 The ZIPs are icon themes, not Calibre plugins.
+
+<br>
+
+## 🛠️ Rebuild from source
+
+Only needed to change the icons. The `src/` folder holds the inputs; every build writes its packages, manifests and previews back to the locations above.
+
+| Path | Contents |
+| --- | --- |
+| `src/tools/` | Builders, verification and screenshot scripts. |
+| `src/vendor/lucide/` | Original Lucide sources used by Line and Sky, with their license. |
+| `src/themes/<name>/source/` | Original atlases, exact prompts, extraction maps and style references. |
+| `src/themes/<name>/ARTWORK.md` | How each raster theme was made. |
+
+Run from the folder that contains `tovu-calibre-themes` (the builders use Calibre's bundled Qt and Pillow, offline):
+
+```sh
+QT_QPA_PLATFORM=offscreen calibre-debug -e tovu-calibre-themes/src/tools/build_theme.py
+QT_QPA_PLATFORM=offscreen calibre-debug -e tovu-calibre-themes/src/tools/build_clay.py
+QT_QPA_PLATFORM=offscreen calibre-debug -e tovu-calibre-themes/src/tools/build_sky.py
+QT_QPA_PLATFORM=offscreen calibre-debug -e tovu-calibre-themes/src/tools/build_pencil.py
+QT_QPA_PLATFORM=offscreen calibre-debug -e tovu-calibre-themes/src/tools/build_pencil_color.py
+QT_QPA_PLATFORM=offscreen calibre-debug -e tovu-calibre-themes/src/tools/build_stickers.py
+python3 tovu-calibre-themes/src/tools/build_gallery.py
+
+# Integration tests in throwaway profiles (run after building)
+python3 tovu-calibre-themes/src/tools/verify.py
+
+# Screenshots used in this README (throwaway profiles and a sample library)
+QT_QPA_PLATFORM=offscreen QT_SCALE_FACTOR=2 calibre-debug -e tovu-calibre-themes/src/tools/snapshot_gui.py
+python3 tovu-calibre-themes/src/tools/snapshot_calibre.py
+```
+
+A build also writes every loose PNG, the editable SVGs and HTML galleries; `.gitignore` keeps those out of the repository, since the ZIPs already contain every icon.
 
 <br>
 
 ## 🖌️ Artwork and provenance
 
 - **Line** and **Sky** adapt [Lucide](https://lucide.dev/) 1.73.0 (ISC and MIT notices in [`LICENSE-LUCIDE`](LICENSE-LUCIDE)). Sky adds native gradients to the outlines.
-- **Clay**, **Pencil**, **Pencil Color** and **Stickers** are separate raster artworks made with an image-generation tool. Pencil keeps its graphite grain on both light and dark backgrounds.
+- **Clay**, **Pencil**, **Pencil Color** and **Stickers** are separate raster artworks made with an image-generation tool. Their exact prompts and original source sheets are in `src/themes/<name>/source/`; the prompts are kept verbatim, so they still use the project's former name, Calibra. Pencil keeps its graphite grain on both light and dark backgrounds.
 - Scripts are released under the [MIT license](LICENSE).
 
 <div align="center">

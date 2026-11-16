@@ -25,4 +25,5 @@ license for icons derived from Feather are in LICENSE-LUCIDE. Those notices
 apply to the original and adapted icon artwork distributed here.
 
 Tovu Clay, Pencil, Pencil Color and Stickers are separate generated raster
-artworks.
+artworks. Their source atlases and generation prompts are included in
+src/themes/<name>/source. See the ARTWORK.md file within each of those folders.
