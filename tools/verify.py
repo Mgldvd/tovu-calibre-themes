@@ -37,7 +37,9 @@ def check():
         def installer(*args,success=True,theme='line'):
             return command(['calibre-debug','-e',str(runner),'--',*args,'--theme',theme,'--config-dir',str(profile)],success)
         # Exercise the real shell launcher's argument forwarding separately.
-        assert '"installed": false' in command([str(ROOT/'install.sh'),'--status','--config-dir',str(profile)])
+        assert '"installed": false' in command([str(ROOT/'install-linux.sh'),'--status','--config-dir',str(profile)])
+        # The macOS launcher is plain bash, so its lookup and forwarding run here too.
+        assert '"installed": false' in command(['bash',str(ROOT/'install-mac.command'),f'--config-dir={profile}','--status'])
         for name,data in {
             'icons-any.rcc':b'previous any theme','icons-light.rcc':b'previous light theme',
             'icons-dark.rcc':b'previous dark theme',

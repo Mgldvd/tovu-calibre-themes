@@ -10,7 +10,7 @@ Line · Clay · Sky · Pencil · Pencil Color · Stickers
 
 ![Calibre 6+](https://img.shields.io/badge/Calibre-6%2B-0f766e?style=flat-square)
 ![Tested on 9.18](https://img.shields.io/badge/tested%20on-9.18.0-0f766e?style=flat-square)
-![Platform: Linux](https://img.shields.io/badge/platform-Linux-334155?style=flat-square&logo=linux&logoColor=white)
+![Platforms: Windows · macOS · Linux](https://img.shields.io/badge/platforms-Windows%20%C2%B7%20macOS%20%C2%B7%20Linux-334155?style=flat-square)
 ![245 icons per theme](https://img.shields.io/badge/icons-245%20per%20theme-8b5cf6?style=flat-square)
 ![Offline](https://img.shields.io/badge/install-offline%20%C2%B7%20no%20root-f59e0b?style=flat-square)
 ![License: MIT](https://img.shields.io/badge/license-MIT-64748b?style=flat-square)
@@ -161,19 +161,31 @@ Every theme covers **245 native icon names** in Calibre 9.18: toolbar, menus, ed
 ## 🚀 Quick start
 
 1. **Close Calibre.**
-2. **Run the installer:** `./tovu-calibre-themes/install.sh`, or double-click `Install Tovu Calibre Themes.desktop` (allow launching if your file manager asks).
+2. **Open the `tovu-calibre-themes` folder and run the installer for your system:**
+
+   | System | Installer | From a terminal |
+   | --- | --- | --- |
+   | 🪟 Windows | Double-click `install-windows.bat` | `install-windows.bat` |
+   | 🍎 macOS | Double-click `install-mac.command` | `bash install-mac.command` |
+   | 🐧 Linux | Double-click `install-linux.sh` and choose **Run** | `./install-linux.sh` |
+
 3. **Pick a theme**, check it in **Light** and **Dark**, then click **Install theme**.
 4. **Reopen Calibre.** Done.
 
-Prefer the terminal? Install directly:
+Prefer the terminal? Install directly (same options on every system):
 
 ```sh
-./tovu-calibre-themes/install.sh --install --theme stickers   # line · clay · sky · pencil · pencil-color · stickers
-./tovu-calibre-themes/install.sh --status                     # show the active profile and theme
+./install-linux.sh --install --theme stickers   # line · clay · sky · pencil · pencil-color · stickers
+./install-linux.sh --status                     # show the active profile and theme
 ```
 
+On Windows use `install-windows.bat --install --theme stickers`, and on macOS `bash install-mac.command --install --theme stickers`.
+
 > [!NOTE]
-> No Internet, administrator rights or extra downloads needed. The installer uses the theme compiler in your installed Calibre and finds the active profile itself, including `CALIBRE_CONFIG_DIRECTORY`. The desktop shortcut points to this folder's current location; if you move the folder, run `install.sh` directly.
+> No Internet, administrator rights or extra downloads needed. Each installer uses the theme compiler in your installed Calibre (`calibre-debug`) and finds the active profile itself, including `CALIBRE_CONFIG_DIRECTORY`. On Linux, the first run also creates an `Install Tovu Calibre Themes` shortcut in the folder; it is refreshed every time `install-linux.sh` runs, so it keeps working if you move the folder.
+
+> [!WARNING]
+> **Windows and macOS** use the same installer as Linux, but have not been tested on those systems yet. The first time, Windows may show *"Windows protected your PC"*: click **More info → Run anyway**. macOS may say the file is from an unidentified developer: right-click `install-mac.command` → **Open**, or run `bash install-mac.command` in Terminal. If Calibre is installed somewhere unusual, set `CALIBRE_DEBUG` to the full path of `calibre-debug` before running the installer.
 
 <br>
 
@@ -181,8 +193,8 @@ Prefer the terminal? Install directly:
 
 | Button | Command | What it does |
 | --- | --- | --- |
-| **Restore previous** | `./tovu-calibre-themes/uninstall.sh` | Returns to the icon theme you had before you first installed Tovu Calibre Themes. |
-| **Restore default** | `./tovu-calibre-themes/install.sh --restore-default` | Removes every custom icon theme and override, so Calibre uses its built-in icons. Removed files are saved first to `tovu-backups/<date>-before-default/`. |
+| **Restore previous** | `uninstall-windows.bat` · `uninstall-mac.command` · `./uninstall-linux.sh` | Returns to the icon theme you had before you first installed Tovu Calibre Themes. |
+| **Restore default** | Your system's installer with `--restore-default` | Removes every custom icon theme and override, so Calibre uses its built-in icons. Removed files are saved first to `tovu-backups/<date>-before-default/`. |
 
 > [!TIP]
 > Switching between Tovu themes keeps your original backup, so **Restore previous** works even after **Restore default**. Backups live in `tovu-backups/` inside your Calibre profile, and any edits made after installing are kept in `changed-after-install/`.
@@ -196,7 +208,7 @@ Calibre's window layout, library, covers, textures and preferences are never tou
 
 ## 🧪 Verify and rebuild
 
-Requires **Linux** and **Calibre 6 or later**; verified against **Calibre 9.18.0**. Tests run in isolated profiles, so your open Calibre session is untouched.
+The themes and the installer need **Calibre 6 or later** on Windows, macOS or Linux. The test suite and builders run on **Linux** and are verified against **Calibre 9.18.0**. Tests run in isolated profiles, so your open Calibre session is untouched.
 
 ```sh
 python3 tovu-calibre-themes/tools/verify.py
@@ -226,7 +238,8 @@ The builders use Calibre's bundled Qt and Pillow. Installing uses the prebuilt p
 
 | Path | Contents |
 | --- | --- |
-| `install.sh`, `uninstall.sh` | Graphical installer and restore launcher. |
+| `install-windows.bat`, `install-mac.command`, `install-linux.sh` | Installer launchers for each system. |
+| `uninstall-windows.bat`, `uninstall-mac.command`, `uninstall-linux.sh` | Restore the icon theme you had before. |
 | `installer.py` | Theme selection, native compilation and verified backups. |
 | `tovu-line-theme.zip`, `theme/`, `svg/` | Tovu Line: native theme package, PNG resources and editable vectors. |
 | `themes/<name>/tovu-<name>-theme.zip` | Each theme in Calibre's native icon-theme format. |

@@ -127,7 +127,7 @@ def orchestrate():
                 'QT_SCALE_FACTOR':SCALE, 'TOVU_MUTEX':f'tovu-shot-{os.getpid()}-'}
             run = lambda *args: subprocess.run(['calibre-debug', '-e', __file__, '--', *args], env=env, check=True)
             run('library', str(library))
-            subprocess.run([str(ROOT/'install.sh'), '--install', '--theme', theme, '--config-dir', str(profile)],
+            subprocess.run([str(ROOT/'install-linux.sh'), '--install', '--theme', theme, '--config-dir', str(profile)],
                 env=env, check=True, stdout=subprocess.DEVNULL)
             run('shot', str(library), str(OUT/name), palette)
 
