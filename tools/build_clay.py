@@ -64,6 +64,20 @@ ALIASES={
     'tablet-smartphone':'tablet','text-search':'search','wand-sparkles':'sparkles',
 }
 
+# Distinct Calibre actions that the 144-pictogram atlases would otherwise
+# collapse onto one picture (toolbar and menu neighbours): (glyph, badge).
+OVERRIDES={
+    'sync':('send','tablet'),                 # Send to device, not Convert's arrows
+    'polish':('paintbrush',None),             # Polish books, not AI's sparkles
+    'wizard':('grid-2x2','sparkles'),         # All actions
+    'auto-scroll':('list','arrow-down'),      # not "Move to next match"
+    'copy-to-library':('library-big','copy'), # not the Library button
+    'modified':('file-pen-line','download'),  # Embed metadata, not Edit metadata
+    'fts':('text-align-start','search'),      # Full text search, not the search bar
+    'toc':('toc',None),
+    'document-split':('document-split',None),
+}
+
 
 def atlas_icons():
     from qt.core import QImage, QPainter, Qt, QRectF
@@ -164,6 +178,8 @@ def resource(name,icons):
         glyph='message-circle' if stem=='mobileread' else 'package-open'
     elif stem in {'dot_green','dot_red','font_size_larger','font_size_smaller'}:
         glyph=stem
+    elif stem in OVERRIDES:
+        glyph=OVERRIDES[stem][0]
     else:
         glyph=GROUPS[stem]
     glyph=ALIASES.get(glyph,glyph)
@@ -177,6 +193,8 @@ def resource(name,icons):
         badge='check'
     elif stem=='list_remove':
         badge='minus'
+    elif stem in OVERRIDES:
+        badge=OVERRIDES[stem][1]
     if badge:
         painter=QPainter(out)
         painter.drawImage(QRectF(72,70,54,54),icons[badge]); painter.end()

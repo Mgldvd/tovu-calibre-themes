@@ -31,7 +31,7 @@ FAMILIES={
 COLOR_GROUPS={
     'mint':'add_book edit_book store ok dot_green drm-unlocked book bookmarks marked',
     'teal':'view viewer reader save search config filter tweak tweaks download-metadata connect_share_on',
-    'coral':'send user_profile series donate edit_input modified',
+    'coral':'send sync user_profile series donate edit_input modified',
     'rose':'remove_books trash dialog_error dot_red search_delete_saved',
     'violet':'metadata library bookshelf generic-library calibre apple-touch-icon favicon-192 favicon-512 plugins connect_share',
     'amber':'convert news tags rating polish ai beautify wizard heuristics dialog_warning drm-locked tb_folder document_open folder_saved_search',

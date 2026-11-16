@@ -65,7 +65,7 @@ GROUPS = {
     'modified': 'pencil', 'network-server': 'server', 'news': 'newspaper',
     'next': 'chevron-right', 'notes': 'sticky-note', 'ok': 'check',
     'page': 'file', 'plugboard': 'cable', 'plugins': 'puzzle', 'plus': 'plus',
-    'plusplus': 'chevrons-right', 'polish': 'sparkles', 'previous': 'chevron-left',
+    'plusplus': 'chevrons-right', 'polish': 'paintbrush', 'previous': 'chevron-left',
     'print': 'printer', 'publisher': 'building-2', 'quickview': 'scan-eye',
     'random': 'shuffle', 'rating': 'star', 'reader': 'tablet',
     'reference': 'quote', 'remove_books': 'trash-2', 'reports': 'chart-no-axes-combined',
@@ -77,7 +77,7 @@ GROUPS = {
     'similar': 'git-compare-arrows', 'smarten-punctuation': 'quote',
     'snippets': 'braces', 'sort': 'arrow-down-a-z', 'spell-check': 'spell-check',
     'split': 'split', 'store': 'shopping-bag', 'subset-fonts': 'remove-formatting',
-    'swap': 'arrow-left-right', 'sync-right': 'arrow-right-left', 'sync': 'refresh-cw',
+    'swap': 'arrow-left-right', 'sync-right': 'arrow-right-left', 'sync': 'send-to-device',
     'tags': 'tags', 'tb_folder': 'folder', 'template_funcs': 'function-square',
     'toc': 'list-tree', 'trash': 'trash-2', 'trim': 'crop', 'tweak': 'sliders-horizontal',
     'tweaks': 'sliders-horizontal', 'unpack-book': 'package-open',
@@ -85,6 +85,16 @@ GROUPS = {
     'view-image': 'image', 'view-refresh': 'refresh-cw', 'view': 'book-open-text',
     'viewer': 'book-open-text', 'vl': 'folders', 'width': 'arrow-left-right',
     'window-close': 'x', 'wizard': 'wand-sparkles',
+}
+# Glyphs drawn on Lucide's 24-pixel grid for actions the vendored set lacks.
+# Calibre's "Send to device" uses sync.png, so it must not share Convert's arrows.
+CUSTOM_SVGS = {
+    'send-to-device': '<path d="M2 12h8"/><path d="m7 8 4 4-4 4"/>'
+        '<rect x="13" y="2" width="9" height="20" rx="2"/><path d="M17.5 18h.01"/>',
+    # Lucide paintbrush (ISC): Polish books, distinct from the AI sparkles.
+    'paintbrush': '<path d="m14.622 17.897-10.68-2.913"/>'
+        '<path d="M18.376 2.622a1 1 0 1 1 3.002 3.002L17.36 9.643a.5.5 0 0 0 0 .707l.944.944a2.41 2.41 0 0 1 0 3.408l-.944.944a.5.5 0 0 1-.707 0L8.354 7.348a.5.5 0 0 1 0-.707l.944-.944a2.41 2.41 0 0 1 3.408 0l.944.944a.5.5 0 0 0 .707 0z"/>'
+        '<path d="M9 8c-1.804 2.71-3.97 3.46-6.583 3.948a.507.507 0 0 0-.302.819l7.32 8.883a1 1 0 0 0 1.185.204C12.735 20.405 16 16.792 16 15"/>',
 }
 DEVICE_MAP = {
     'bambook':'tablet', 'boox':'tablet', 'folder':'folder', 'ipad':'tablet',
@@ -95,7 +105,7 @@ PALETTES = {
     'light': {'ink':'#475569', 'accent':'#0f766e', 'danger':'#be4153', 'warning':'#a16207', 'muted':'#94a3b8'},
     'dark': {'ink':'#cbd5e1', 'accent':'#5eead4', 'danger':'#fda4af', 'warning':'#fcd34d', 'muted':'#64748b'},
 }
-ACCENT = set('add_book book book­shelf library library-big metadata convert view viewer reader save send connect_share news catalog edit_book polish lookfeel download-metadata search user_profile plugins series tags books_in_series book­marks generic-library cover_flow'.replace('\u00ad','').split())
+ACCENT = set('add_book book book­shelf library library-big metadata convert view viewer reader save send sync connect_share news catalog edit_book polish lookfeel download-metadata search user_profile plugins series tags books_in_series book­marks generic-library cover_flow'.replace('\u00ad','').split())
 DANGER = set('remove_books trash dialog_error dot_red search_delete_saved plugin_disabled_invalid plugin_new_invalid plugin_upgrade_invalid'.split())
 WARNING = {'dialog_warning', 'drm-locked', 'plugin_deprecated'}
 
@@ -125,10 +135,15 @@ def svg_icon(name, mode):
         icon = {'computer':'monitor','dir':'folder'}[stem]
     else:
         icon = GROUPS[stem]
-    source = ROOT/'vendor/lucide'/f'{icon}.svg'
-    if not source.is_file():
-        raise ValueError(f'Missing Lucide icon: {icon} ({name})')
-    node = ET.fromstring(source.read_text())
+    if icon in CUSTOM_SVGS:
+        node = ET.fromstring('<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" '
+            'fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'
+            + CUSTOM_SVGS[icon] + '</svg>')
+    else:
+        source = ROOT/'vendor/lucide'/f'{icon}.svg'
+        if not source.is_file():
+            raise ValueError(f'Missing Lucide icon: {icon} ({name})')
+        node = ET.fromstring(source.read_text())
     node.set('width','128'); node.set('height','128')
     node.set('stroke',color); node.set('stroke-width','1.7')
     if stem in {'dot_green','dot_red'}:
